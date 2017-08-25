@@ -11,9 +11,9 @@ exports.sendOrderNotification = functions.database.ref('/Orders/{pushId}').onWri
     postToSlack();
 });
 
+//to do https://firebase.google.com/docs/functions/config-env
 
-function postToSlack(text) {
-
+function postToSlack() {
     var web = new WebClient(token);
     web.chat.postMessage('orders', 'Order Received', function (err, res) {
         if (err) {
